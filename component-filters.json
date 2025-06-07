@@ -26,11 +26,8 @@
       "product-recommendations",
       "product-details",
 			"commerce-checkout",
-			"commerce-customer-details",
 			"commerce-account-sidebar",
-      "commerce-account-header",
-      "commerce-login",
-			"commerce-addresses"
+      "commerce-account-header"
     ]
   },
   {
