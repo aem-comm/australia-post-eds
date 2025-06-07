@@ -237,9 +237,9 @@ export function getSkuFromUrl() {
   const path = window.location.pathname;
   const result = path.match(/\/products\/[\w|-]+\/([\w|-]+)(\.html)?$/);
   let sku = result?.[1];
-  // Xwalk: If in AEM authoring environment, try to get fallback sku from page metadata
-  // if url does not resolve to a valid sku
-  if (!sku && window.xwalk.previewSku) {
+
+  // Safe access to xwalk.previewSku
+  if (!sku && window.xwalk?.previewSku) {
     sku = window.xwalk.previewSku;
   }
 
