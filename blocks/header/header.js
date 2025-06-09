@@ -241,8 +241,13 @@ export default async function decorate(block) {
   const miniCartMeta = getMetadata('mini-cart');
   const miniCartPath = miniCartMeta ? new URL(miniCartMeta, window.location).pathname : '/mini-cart';
   loadFragment(miniCartPath).then((miniCartFragment) => {
-    minicartPanel.append(miniCartFragment.firstElementChild);
+    if (miniCartFragment && miniCartFragment.firstElementChild) {
+      minicartPanel.append(miniCartFragment.firstElementChild);
+    } else {
+      console.warn(`Mini cart fragment not found at ${miniCartPath}`);
+    }
   });
+
 
   async function toggleMiniCart(state) {
     const show = state ?? !minicartPanel.classList.contains('nav-tools-panel--show');
