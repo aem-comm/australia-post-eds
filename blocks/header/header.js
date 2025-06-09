@@ -241,11 +241,7 @@ export default async function decorate(block) {
   const miniCartMeta = getMetadata('mini-cart');
   const miniCartPath = miniCartMeta ? new URL(miniCartMeta, window.location).pathname : '/mini-cart';
   loadFragment(miniCartPath).then((miniCartFragment) => {
-    if (miniCartFragment && miniCartFragment.firstElementChild) {
-      minicartPanel.append(miniCartFragment.firstElementChild);
-    } else {
-      console.warn(`Mini cart fragment not found at ${miniCartPath}`);
-    }
+    minicartPanel.append(miniCartFragment.firstElementChild);
   });
 
   async function toggleMiniCart(state) {
